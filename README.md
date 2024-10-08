@@ -13,7 +13,7 @@ O projeto **API Tasks** é uma API RESTful que permite gerenciar tarefas. A API 
 - **JWT (JSON Web Tokens)**: Para autenticação de usuários.
 
 ## Estrutura do Projeto
-
+```plaintext
 api-tasks/
 ├── src/
 │ ├── business/
@@ -26,6 +26,7 @@ api-tasks/
 ├── package.json
 ├── tsconfig.json
 └── ...
+```
 
 ## Instalação
 
@@ -47,16 +48,26 @@ JWT_EXPIRES_IN=1h
 
 1 start: Inicia a aplicação em produção
 
+```sh
 npm start
+```
 
 2 dev: Inicia a aplicação em modo de desenvolvimento com nodemon
 
+```sh
 npm run dev
+```
+
+3 build: Compila o código TypeScript
+
+```sh
+npm run build
+```
 
 ## Endpoints
 
 Usuários
-
+```typescript
 GET /users: Retorna uma lista de usuários.
 Query Params: nameToSearch (opcional)
 
@@ -68,6 +79,7 @@ Body:
 "email": "email@exemplo.com",
 "password": "senha"
 }
+
 POST /users/login: Realiza o login de um usuário.
 Body:
 
@@ -75,9 +87,10 @@ Body:
 "email": "email@exemplo.com",
 "password": "senha"
 }
+```
 
 Tarefas
-
+```typescript
 GET /tasks: Retorna uma lista de tarefas.
 Query Params: title, creator_id, status (todos opcionais)
 
@@ -101,3 +114,4 @@ Body:
 }
 
 DELETE /tasks/:id: Deleta uma tarefa pelo ID.
+``` 
