@@ -8,8 +8,5 @@ export const users = express.Router();
 const userController = new UserController(new UserBusiness(new UserDatabase()));
 
 users.get("/", userController.getUsers);
-// userRouter.get("/:id", userController.getUserById);
-
 users.post("/signup", userController.signup);
 users.post("/login", userController.login);
-// userRouter.delete("/:id", userController.deleteUser
