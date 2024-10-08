@@ -30,17 +30,21 @@ describe("Testando TaskBusiness", () => {
   });
 
   test("deve atualizar uma task existente", async () => {
-    const id = "task-1";
+    const id = "task-1"; // ID da tarefa que queremos atualizar
     const input = {
-      title: "Tarefa atualizada",
-      status: true,
+      title: "Tarefa atualizada", // Novo título
+      status: true, // Novo status
     };
 
     const output = await taskBusiness.updateTask(id, input);
 
     expect(output.message).toBe("Tarefa atualizada com sucesso");
-    expect(output.task.title).toBe("Tarefa atualizada");
-    expect(output.task.status).toBe(true);
+
+    // Verifique se a tarefa foi realmente atualizada no mock
+    const updatedTask = await taskBusiness.getTaskById(id);
+
+    expect(updatedTask.title).toBe("Tarefa atualizada");
+    expect(updatedTask.status).toBe(true);
   });
 
   test("deve deletar uma task existente", async () => {
@@ -64,6 +68,19 @@ describe("Testando TaskBusiness", () => {
     await expect(taskBusiness.updateTask(id, input)).rejects.toThrow(
       "Tarefa não encontrada"
     );
+  });
+
+  test("deve retornar lista de todas as tasks", async () => {
+    const input = {
+      title: "",
+      creator_id: "id-mock-astrodev",
+      status: undefined,
+    };
+
+    const output = await taskBusiness.getTask(input);
+
+    expect(output).toHaveLength(1); // Espera-se que haja uma tarefa no mock
+    expect(output[0].title).toBe("Tarefa atualizada"); // Verifica a tarefa atualizada
   });
 
   test("deve retornar erro ao tentar deletar uma task que não existe", async () => {

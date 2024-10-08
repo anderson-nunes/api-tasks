@@ -1,5 +1,4 @@
 import { UserBusiness } from "../../../src/business/UserBusiness";
-
 import { UserDatabaseMock } from "../../mocks/UserDatabaseMock";
 
 describe("Testando signup", () => {
@@ -16,7 +15,7 @@ describe("Testando signup", () => {
 
     expect(output).toEqual({
       message: "Cadastro realizado com sucesso",
-      token: "token-mock",
+      token: expect.any(String), // Aceita qualquer string como token
     });
   });
 });

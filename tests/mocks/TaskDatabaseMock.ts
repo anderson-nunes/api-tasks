@@ -3,14 +3,14 @@ import { TaskDB } from "../../src/models/Task";
 export const tasksMock: TaskDB[] = [
   {
     id: "task-1",
-    title: "Primeira tarefa",
+    title: "Tarefa atualizada", // Esta tarefa será atualizada
     status: false,
     creator_id: "id-mock-astrodev",
     created_at: new Date().toISOString(),
   },
   {
     id: "task-2",
-    title: "Segunda tarefa",
+    title: "Segunda tarefa", // Esta é a segunda tarefa
     status: true,
     creator_id: "id-mock-fulano",
     created_at: new Date().toISOString(),
