@@ -41,8 +41,17 @@ npm install
 
 3 Crie um arquivo .env na raiz do projeto e defina as variáveis de ambiente necessárias:
 
-JWT_KEY=sua_chave_jwt
-JWT_EXPIRES_IN=1h
+```sh
+
+#Porto Expresso
+PORTA=3001
+#Caminho do arquivo do banco de dados SQLite
+DB_FILE_PATH=./src/database/nome-do-arquivo.db
+#Credenciais e chaves secretas
+JWT_KEY=escolheu uma chave secreta
+#Tempo de expiração do token (exemplo: 1 dia)
+JWT_EXPIRES_IN=1d
+```
 
 ## Scripts
 
