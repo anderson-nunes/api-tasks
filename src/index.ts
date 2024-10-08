@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { users } from "./router/users";
+import { tasks } from "./router/tasks";
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/users", users);
+app.use("/tasks", tasks);
 
 app.use("/status", (req, resp) => {
   resp.send("api esta funcionando");
