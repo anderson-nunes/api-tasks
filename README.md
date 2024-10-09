@@ -73,6 +73,14 @@ npm run dev
 npm run build
 ```
 
+## Testes
+
+Para rodar todos os testes:
+
+```bash
+npm run test
+```
+
 ## Endpoints
 
 Usuários
